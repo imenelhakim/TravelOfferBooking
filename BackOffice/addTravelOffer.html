@@ -369,7 +369,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Add New Travel Offer</h6>
                         </div>
                         <div class="card-body">
-                            <form action="" id="form" >
+                            <form action="" method="get" id="form">
 
                                 <table>
                                     <tr class="form-group row">
@@ -378,7 +378,7 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="title">
+                                            <input type="text" class="form-control form-control-user" id="title" name="title">
                                             <p class="mb-2" id="titre_msg"></p>
                                         </div>
                                     </tr>
@@ -389,7 +389,8 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="destination">
+                                            <input type="text" class="form-control form-control-user" id="destination" name="destination">
+                                            <p class="mb-2" id="dest_msg"></p>
                                         </div>
                                     </tr>
                                     </tr>
@@ -399,7 +400,7 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="date" class="form-control form-control-user" id="dep_date">
+                                            <input type="date" class="form-control form-control-user" id="dep_date" name="dep_date">
                                         </div>
                                     </tr>
                                     </tr>
@@ -409,7 +410,8 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="date" class="form-control form-control-user" id="ret_date">
+                                            <input type="date" class="form-control form-control-user" id="ret_date" name="ret_date">
+                                            <p class="mb-2" id="return_msg"></p>
                                         </div>
                                     </tr>
                                     </tr>
@@ -419,7 +421,8 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="number" class="form-control form-control-user" id="price">
+                                            <input type="number" class="form-control form-control-user" id="price" name="price">
+                                            <p class="mb-2" id="price_msg"></p>
                                         </div>
                                     </tr>
                                     </tr>
@@ -429,7 +432,7 @@
                                     </tr>
                                     <tr>
                                         <div>
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="availability">
                                         </div>
                                     </tr>
                                     </tr>
@@ -439,7 +442,7 @@
                                     </tr>
                                     <tr>
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control form-control-user" id="">
+                                            <select class="form-control form-control-user" id="" name="category">
                                                 <option value="family">Family Trips</option>
                                                 <option value="couple">Couple's Trips</option>
                                                 <option value="adventure">Adventure and Sports Trips</option>
@@ -525,9 +528,7 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <!-- Validation de données -->
-    <!-- <script src="js/addOffer.js"></script> -->
-
-    <script src="js/addOffer2.js"></script>
+    <script src="js/addOffer.js"></script>
 
 </body>
 

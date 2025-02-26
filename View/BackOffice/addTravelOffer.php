@@ -369,7 +369,8 @@
                             <h6 class="m-0 font-weight-bold text-primary">Add New Travel Offer</h6>
                         </div>
                         <div class="card-body">
-                            <form action="" method="get" id="form">
+                            <form action="Verification.php" method="get" id="form">
+                            <!-- <form action="Verification.php" method="post" id="form"> -->
 
                                 <table>
                                     <tr class="form-group row">

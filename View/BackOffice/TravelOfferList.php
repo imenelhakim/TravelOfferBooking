@@ -1,3 +1,14 @@
+<?php
+
+include '../../Model/TravelOffer.php';
+include '../../Controlleur/TravelOfferController.php';
+
+$toc = new TravelOfferController();
+
+$to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"], $_GET["ret_date"], $_GET["price"], $_GET["availability"], $_GET["category"]);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +30,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -272,7 +285,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -283,7 +297,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -294,7 +309,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -326,7 +342,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -360,107 +377,67 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <!-- <h1 class="h3 mb-2 text-gray-800">New Travel Offer</h1>
-                    <p class="mb-4">In this interface you're able to add a new travel offer</p> -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4" align="left">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Add New Travel Offer</h6>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-4">
+                            <h6 class="m-0 font-weight-bold text-primary">Travel Offers List</h6>
+                            <p class="mb-4">You can find here the travel offers list.</p>
+                            <a href="addTravelOffer.html" class="btn btn-primary btn-user btn-block col-md-3">Add new travel offer</a>
                         </div>
                         <div class="card-body">
-                            <form action="TravelOfferList.php" method="get" id="form">
-                                <!-- <form action="Verification.php" method="post" id="form"> -->
-
-                                <table>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Title</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="title" name="title">
-                                            <p class="mb-2" id="titre_msg"></p>
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Destination</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="destination" name="destination">
-                                            <p class="mb-2" id="dest_msg"></p>
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Departure date</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="date" class="form-control form-control-user" id="dep_date" name="dep_date">
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Return date</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="date" class="form-control form-control-user" id="ret_date" name="ret_date">
-                                            <p class="mb-2" id="return_msg"></p>
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Price</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="number" class="form-control form-control-user" id="price" name="price">
-                                            <p class="mb-2" id="price_msg"></p>
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Availability</p>
-                                    </tr>
-                                    <tr>
-                                        <div>
-                                            <input type="checkbox" name="availability">
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr class="form-group row">
-                                    <tr>
-                                        <p class="text-gray-900 mb-2">Category</p>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control form-control-user" id="" name="category">
-                                                <option value="family">Family Trips</option>
-                                                <option value="couple">Couple's Trips</option>
-                                                <option value="adventure">Adventure and Sports Trips</option>
-                                            </select>
-                                        </div>
-                                    </tr>
-                                    </tr>
-                                    <tr>
-                                        <div class="col-sm-2 mb-3 mb-sm-0">
-                                            <br>
-                                            <!-- <input type="submit" onclick="validerFormulaire()" class="btn btn-primary btn-user btn-block" value="Add"> -->
-                                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Add">
-                                        </div>
-                                    </tr>
-                                    </tr>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Destination</th>
+                                            <th>Departure Date</th>
+                                            <th>Return Date</th>
+                                            <th>Price</th>
+                                            <th>Availability</th>
+                                            <th>Category</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- WHERE TO DISPLAY DATA -->
+                                        <tr>
+                                            <td><?php echo $_GET["title"] ?></td>
+                                            <td><?php echo $_GET["destination"] ?></td>
+                                            <td><?php echo $_GET["dep_date"] ?></td>
+                                            <td><?php echo $_GET["ret_date"] ?></td>
+                                            <td><?php echo $_GET["price"] ?></td>
+                                            <td><?php echo $_GET["availability"] ?></td>
+                                            <td><?php echo $_GET["category"] ?></td>
+                                            <td>
+                                                <a id="userDropdown" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v fa-sm fa-fw mr-2"></i>
+                                                </a>
+                                                <!-- Dropdown - User Information -->
+                                                <div class="dropdown-menu dropdown-menu-right "
+                                                    aria-labelledby="userDropdown">
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fas fa-list fa-sm fa-fw mr-2"></i>
+                                                        Details
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fas fa-pencil fa-sm fa-fw mr-2"></i>
+                                                        Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="#" style="color: red;">
+                                                        <i class="fa fa-trash fa-sm fa-fw mr-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -527,9 +504,6 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
-    <!-- Validation de données -->
-    <script src="js/addOffer.js"></script>
 
 </body>
 

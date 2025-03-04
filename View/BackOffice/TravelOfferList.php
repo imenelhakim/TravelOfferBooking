@@ -5,7 +5,9 @@ include '../../Controlleur/TravelOfferController.php';
 
 $toc = new TravelOfferController();
 
-$to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"], $_GET["ret_date"], $_GET["price"], $_GET["availability"], $_GET["category"]);
+$availability = isset($_GET['availability']) ? 1 : 0;
+
+$to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"], $_GET["ret_date"], $_GET["price"], $availability , $_GET["category"]);
 
 ?>
 
@@ -410,7 +412,7 @@ $to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"]
                                             <td><?php echo $_GET["dep_date"] ?></td>
                                             <td><?php echo $_GET["ret_date"] ?></td>
                                             <td><?php echo $_GET["price"] ?></td>
-                                            <td><?php echo $_GET["availability"] ?></td>
+                                            <td><?php echo $availability ?></td>
                                             <td><?php echo $_GET["category"] ?></td>
                                             <td>
                                                 <a id="userDropdown" role="button"

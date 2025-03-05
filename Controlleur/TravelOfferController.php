@@ -1,8 +1,23 @@
 <?php
+require '../../config.php';
 
 class TravelOfferController{
 
-// FONCTIONS CRUD STAR METIER 
+// CRUD
+public function listOffre(){
+    $sql = "SELECT * FROM traveloffer";
+    $db = config::getConnexion();
+    try {
+        $query=$db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+        } catch (Exception $e) {
+        echo 'error:'.$e->getMessage();
+    }
+}
+
+
+
 
 public function showTravelOffer($traveloffer){
     echo "

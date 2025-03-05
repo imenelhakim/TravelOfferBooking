@@ -1,13 +1,12 @@
 <?php
 
-include '../../Model/TravelOffer.php';
 include '../../Controlleur/TravelOfferController.php';
 
 $toc = new TravelOfferController();
 
-$availability = isset($_GET['availability']) ? 1 : 0;
+$liste = $toc->listOffre();
 
-$to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"], $_GET["ret_date"], $_GET["price"], $availability , $_GET["category"]);
+// var_dump($liste);
 
 ?>
 
@@ -84,7 +83,7 @@ $to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"]
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="TravelOfferList.html">Travel Offer List</a>
+                        <a class="collapse-item" href="TravelOfferList.php">Travel Offer List</a>
                         <a class="collapse-item" href="addTravelOffer.php">Add Travel Offer</a>
                     </div>
                 </div>
@@ -405,15 +404,19 @@ $to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"]
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- WHERE TO DISPLAY DATA -->
+                                        <!-- PARCOURS DE LA LISTE DES OFFRES -->
+                                         <?php
+                                            foreach($liste as $offer){
+                                         ?>
                                         <tr>
-                                            <td><?php echo $_GET["title"] ?></td>
-                                            <td><?php echo $_GET["destination"] ?></td>
-                                            <td><?php echo $_GET["dep_date"] ?></td>
-                                            <td><?php echo $_GET["ret_date"] ?></td>
-                                            <td><?php echo $_GET["price"] ?></td>
-                                            <td><?php echo $availability ?></td>
-                                            <td><?php echo $_GET["category"] ?></td>
+                                            <td><?php echo $offer["titre"] ?></td>
+                                            <td><?php echo $offer["destination"] ?></td>
+                                            <td><?php echo $offer["date_depart"] ?></td>
+                                            <td><?php echo $offer["date_retour"] ?></td>
+                                            <td><?php echo $offer["prix"] ?></td>
+                                            <td><?php echo $offer['disponible'] ?></td>
+                                            <td><?php echo $offer["categorie"] ?></td>
+                
                                             <td>
                                                 <a id="userDropdown" role="button"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -437,6 +440,8 @@ $to = new TravelOffer(1, $_GET["title"], $_GET["destination"], $_GET["dep_date"]
                                                 </div>
                                             </td>
                                         </tr>
+                                        <?php }  ?>
+                                        <!-- FIN DU PARCOURS DE LA LISTE DES OFFRES -->
                                     </tbody>
                                 </table>
                             </div>

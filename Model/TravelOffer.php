@@ -20,6 +20,11 @@ class TravelOffer{
         $this->disponible = $disp;
         $this->categorie = $c;
     }
+
+    public function __destruct()
+    {
+        
+    }
     
     // public function __construct($i,$t,$d,$dd,$dr,$p,$disp,$c){
     //     $this->id = $i;

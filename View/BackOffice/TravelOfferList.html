@@ -69,7 +69,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="TravelOfferList.html">Travel Offer List</a>
+                        <a class="collapse-item" href="TravelOfferList.php">Travel Offer List</a>
                         <a class="collapse-item" href="addTravelOffer.php">Add Travel Offer</a>
                     </div>
                 </div>
